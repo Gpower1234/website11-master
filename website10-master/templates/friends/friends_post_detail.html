@@ -84,8 +84,7 @@ background-image: linear-gradient(315deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
           {% block content %}
 
 
-
-
+{% if subscription %}
           <p>
   <a class="btn btn-danger" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Contact Now
@@ -97,7 +96,7 @@ background-image: linear-gradient(315deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%);
       <h5 class="text-primary"><i class="fas fa-envelope-open"></i> {{object.email}}</h5>
   </div>
 </div>
-
+ {% endif %}
 
 
 <form action="{% url 'payment' %}" method="post" id="payment-form">
