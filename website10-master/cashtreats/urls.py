@@ -21,8 +21,7 @@ urlpatterns = [
   #  path('', home, name='home'),
     path('best', include(router.urls)),
    # path('upload/<int:user_id>', upload, name='upload')
-
-
+    path('payment/', views.payment, name='payment'),
 ]
 
 
