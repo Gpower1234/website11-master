@@ -22,6 +22,7 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import friends
+from user.models import Subscription 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def payment(request):
