@@ -7,3 +7,10 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
+    
+class Subscription(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=False, null=False)
+    email = models.EmailField()
+    paid = models.IntegerField()
+    
+    return self.user
