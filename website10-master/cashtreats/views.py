@@ -42,6 +42,7 @@ def services(request):
 # Added by Godspower
 def payment(request):
     Key = settings.STRIPE_PUBLISHABLE_KEY
+    user = request.user
 
     if request.method == 'POST':
         amount = int(request.POST['amount'])
@@ -85,6 +86,12 @@ def payment(request):
             currency = 'usd',
             description='payment',
         )
+        
+        subcription = Subcription.objects.get_or_create(
+                user = user,
+                paid = int(amount) *100,
+                email = request.POST.get('email'),
+            )
 
         transRetrive = stripe.Charge.retrieve(
             charge["id"],
