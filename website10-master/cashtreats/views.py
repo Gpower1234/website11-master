@@ -95,7 +95,7 @@ def payment(request):
         messages.success(request, "Payment succesful!.")
         return redirect('/')
 
-    return render(request, 'payment.html', {
+    return render(request, 'cashtreats/payment.html', {
         'Key':Key,
     })
 
