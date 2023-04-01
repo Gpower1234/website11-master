@@ -160,7 +160,15 @@ class Searchview(View):
 class friendPostDetailView(DetailView):
     model = friends
     template_name = 'friends/friends_post_detail.html'
-
+    
+    def get_queryset(self)
+        queryset = super().get_queryset()
+        return queryset.filter(user=self.request.user)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['subscriptions'] = Subscription.object.filter(user=self.request.user)
+        return context
 
 class friendPostCreateView(LoginRequiredMixin, CreateView):
 
